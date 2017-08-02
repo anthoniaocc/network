@@ -35,6 +35,8 @@ class NetworkEvent < ApplicationRecord
 
   has_many :network_event_tasks
 
+  has_many :messages, dependent: :destroy
+
   accepts_nested_attributes_for :network_event_tasks
 
 

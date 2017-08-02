@@ -14,12 +14,17 @@
 //= require jquery_ujs
 //= require bootstrap-sprockets
 //= require turbolinks
-//= require_tree .
 //= require moment
+//= require select2
 //= require bootstrap-datetimepicker
 //= require select2-full
 //= require zeroclipboard
 
-$(document).on('turbolinks:render', function() {
-  $('.select2').select2();
+/*
+$(document).on('page:load turbolinks:render', function() {
+  $('.select2').select2({
+    tags: true
+  });
 });
+*/
+

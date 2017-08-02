@@ -126,4 +126,16 @@ class NetworkEventsControllerTest < ActionController::TestCase
 
     assert_redirected_to network_events_path
   end
+
+  test "should find related contacts" do
+    get :contacts, params:{ q: { term: "all" }, id: @network_event.id }
+    assert_response :success
+
+    parsed_response = JSON.parse(response.body)
+    assert_equal [
+      {"id"=>"ALLSCHOOLCONTACTS", "text"=>"All School Contacts"},
+      {"id"=>"ALLSITECONTACTS", "text"=>"All Site Contacts"},
+      {"id"=>"ALLVOLUNTEERS", "text"=>"All Volunteers"}
+    ], parsed_response
+  end
 end

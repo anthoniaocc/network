@@ -84,6 +84,11 @@ class NetworkEventsController < ApplicationController
   def create_another
     params[:commit] == "Save & Create Another"
   end
+
+  def contacts
+    permitted = params.permit(:id, q: :term)
+    render json: NetworkEventsContactsService.call(permitted)
+  end
   
   private
   
